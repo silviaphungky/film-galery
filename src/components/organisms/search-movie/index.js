@@ -3,6 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import MovieApi from 'services/movie-api'
 import { MovieList } from 'components/molecules'
 import { useLocation } from 'react-router-dom'
+import { Loader } from 'components/atoms'
 
 const SearchMovie = ({ fetchMovieDetail }) => {
   const [searchResultList, setSearchResultList] = useState([])
@@ -50,7 +51,7 @@ const SearchMovie = ({ fetchMovieDetail }) => {
         setPage(page+1)
       } }
       hasMore={ page < totalPage }
-      loader={ <h3>Loading...</h3> }
+      loader={ <Loader /> }
     >
       <MovieList 
         movieList={ searchResultList }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import MovieApi from 'services/movie-api'
 import { MovieList } from 'components/molecules'
+import { Loader } from 'components/atoms'
 
 const NowPlayingMovie = ({  fetchMovieDetail }) => {
 
@@ -27,7 +28,7 @@ const NowPlayingMovie = ({  fetchMovieDetail }) => {
         setPage(page+1)
       } }
       hasMore={ page < totalPage }
-      loader={ <h3>Loading...</h3> }
+      loader={ <Loader /> }
     >
       <MovieList 
         movieList={ nowPlayingList }
