@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "baseUrl": "src",
+    "paths": {
+      "components/*": ["components/*"],
+      "services/*": ["services/*"]
+    }
+  },
+  "exclude": ["node_modules", ".vscode"]
+}
