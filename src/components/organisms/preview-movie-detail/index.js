@@ -46,8 +46,10 @@ const PreviewMovieDetail = ({ detail }) => {
               detail.homepage
                 ? (
                   <a target="_blank" rel="noopener" href={ detail.homepage }>
-                    <Button>
-                  View original
+                    <Button color='info'>
+                      <div>
+                        View original
+                      </div>
                     </Button>
                   </a>
                 )
