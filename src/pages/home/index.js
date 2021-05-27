@@ -1,18 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, Suspense, lazy } from 'react'
 import MovieApi from '../../services/movie-api'
 import {
   Layout, 
   NowPlayingMovie,
   SearchMovie,
   FilteredMovie,
-  PreviewMovieDetail,
   TopRatedMovie,
   PopularMovie
 } from 'components/organisms'
-
 import { useLocation } from 'react-router-dom'
 import { useFilter } from 'context/filter-provider'
+
+const PreviewMovieDetail = lazy(() => import('components/organisms/preview-movie-detail'))
 
 const HomePage = () => {
 
@@ -56,7 +56,9 @@ const HomePage = () => {
         activeSection={ activeSection } 
         setActiveSection={ setActiveSection }
       >
-        <PreviewMovieDetail detail={ movieDetail } />
+        <Suspense fallback={ <div /> }>
+          <PreviewMovieDetail detail={ movieDetail } />
+        </Suspense>
         { displayMovieList() }
       </Layout>
     </>
