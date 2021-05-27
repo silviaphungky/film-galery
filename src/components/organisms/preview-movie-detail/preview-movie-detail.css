@@ -1,0 +1,16 @@
+.close {
+  opacity: 0.2;
+}
+
+.close:hover {
+  background: none;
+}
+
+.movie-detail__wrapper {
+  position: sticky;
+  top: 4.2rem;
+  background: whitesmoke;
+  z-index: 500;
+  margin: 1rem 0;
+  border-radius: 1rem;
+}

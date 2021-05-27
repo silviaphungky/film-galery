@@ -1,0 +1,9 @@
+.layout__wrapper {
+  margin: 0 3rem;
+}
+
+@media screen and (max-width: 767px) {
+  .layout__wrapper {
+    margin: 0 0.5rem;
+  }
+}
