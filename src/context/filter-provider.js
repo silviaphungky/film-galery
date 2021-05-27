@@ -8,10 +8,6 @@ export const FilterProvider = ({ children }) => {
   const [keyword, setKeyword] = useState('')
   const [isDetail, setIsDetail] = useState(false)
 
-  useEffect(() => {
-    if(keyword) setYearFilter('')
-  }, [keyword])
-
   return (
     <FilterContext.Provider value={{ 
       yearFilter    : yearFilter,
