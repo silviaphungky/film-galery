@@ -1,0 +1,25 @@
+.navbar {
+  z-index: 1000;
+  top: 0;
+  background: maroon;
+}
+
+.navbar-brand {
+  width: 7rem;
+  color: black;
+}
+
+.menu__wrapper {
+  height: 100%;
+ }
+
+@media screen and (max-width: 767px) {
+  .navbar-brand {
+    width: 5rem;
+  }
+
+  .menu__wrapper {
+    height: 100%;
+    flex-direction: column;
+   }
+}
