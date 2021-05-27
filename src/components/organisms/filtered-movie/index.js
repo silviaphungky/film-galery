@@ -24,7 +24,6 @@ const FilteredMovie = ({  fetchMovieDetail }) => {
       .then((response) => {
         const data = response.data.results
         if(page===1) {
-          fetchMovieDetail({ id: data[0].id })
           setFilteredMovieList(data)
         }
         else {setFilteredMovieList([...filteredMovieList, ...data])}

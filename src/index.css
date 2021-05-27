@@ -8,6 +8,14 @@ body {
   background: rgb(27, 30, 35);
 }
 
+body >div {
+  font-size: 0.875rem;
+}
+
+body >h4 {
+  font-size: 0.875rem;
+}
+
 @media screen and (max-width: 767px) {
   body >div {
     font-size: 0.75rem;

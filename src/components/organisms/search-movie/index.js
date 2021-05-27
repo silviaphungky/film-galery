@@ -20,7 +20,6 @@ const SearchMovie = ({ fetchMovieDetail }) => {
       MovieApi.getSearchMovie({ query: searchKeyword, page: 1 })
         .then((response) => {
           const data = response.data.results
-          if(page===1) fetchMovieDetail({ id: data[0].id })
           setSearchResultList(data)
           setTotalPage(response.data.total_pages)
         })
@@ -36,7 +35,6 @@ const SearchMovie = ({ fetchMovieDetail }) => {
       MovieApi.getSearchMovie({ query: searchKeyword, page: page })
         .then((response) => {
           const data = response.data.results
-          if(page===1) fetchMovieDetail({ id: data[0].id })
           setSearchResultList([...searchResultList, ...data])
           setTotalPage(response.data.total_pages)
         })

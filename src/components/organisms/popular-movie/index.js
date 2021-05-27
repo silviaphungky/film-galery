@@ -13,7 +13,6 @@ const PopularMovie = ({  fetchMovieDetail }) => {
     MovieApi.getPopular(page)
       .then((response) => {
         const data = response.data.results
-        if(page===1) fetchMovieDetail({ id: data[0].id })
         setPopularList([...popularList, ...data])
         setTotalPage(response.data.total_pages)
       })

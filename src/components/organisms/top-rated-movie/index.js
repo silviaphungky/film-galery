@@ -13,7 +13,6 @@ const TopRatedMovie = ({  fetchMovieDetail }) => {
     MovieApi.getTopRated(page)
       .then((response) => {
         const data = response.data.results
-        if(page===1) fetchMovieDetail({ id: data[0].id })
         setTopRatedList([...topRatedList, ...data])
         setTotalPage(response.data.total_pages)
       })

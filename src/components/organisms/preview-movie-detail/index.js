@@ -21,22 +21,44 @@ const PreviewMovieDetail = ({ detail }) => {
           <Col 
             lg='4'
             sm='12'
+            xs='12'
           >
             <img 
               src={ `https://image.tmdb.org/t/p/w500/${detail.backdrop_path}` }
               width='100%'
             />
           </Col>
-          <Col>
+          <Col    
+            lg='4'         
+            sm='12'
+            xs='12'>
             <h4>
               { detail.original_title }
             </h4>
             <div>
               { detail.overview }
             </div>
-            <div className='d-flex align-items-center'>
+          </Col>
+          <Col
+            lg='4'
+            sm='12'
+            xs='12'
+          >
+            <div>
+              { 
+              detail?.genres?.length > 0? (
+                <>
+                <span className='mr-3 font-weight-bold'>Genre:</span>
+                {
+                  detail.genres.map((genre) => <span className='mr-1'>{ genre.name }</span>)
+                }
+                </>
+              ) : null 
+              }
+            </div>
+            <div className='d-flex align-items-center font-weight-bold'>
               <div>
-            Vote Average:
+                Vote Average:
               </div>
               <div className='flex-fill mx-3'>
                 <VoteBar voteAvg={ detail.vote_average } />
@@ -46,7 +68,7 @@ const PreviewMovieDetail = ({ detail }) => {
               detail.homepage
                 ? (
                   <a target="_blank" rel="noopener" href={ detail.homepage }>
-                    <Button color='info'>
+                    <Button color='info w-100 mt-3'>
                       <div>
                         View original
                       </div>

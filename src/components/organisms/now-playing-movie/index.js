@@ -13,7 +13,6 @@ const NowPlayingMovie = ({  fetchMovieDetail }) => {
     MovieApi.getNowPlaying(page)
       .then((response) => {
         const data = response.data.results
-        if(page===1) fetchMovieDetail({ id: data[0].id })
         setNowPlayingList([...nowPlayingList, ...data])
         setTotalPage(response.data.total_pages)
       })
