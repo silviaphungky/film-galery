@@ -7,7 +7,7 @@ import { useHistory } from 'react-router'
 const YearPicker = () => {
   const twoYearFromNow = new Date()
   twoYearFromNow.setFullYear(twoYearFromNow.getFullYear() + 2)
-  const { yearFilter, setYearFilter, setKeyword } = useFilter()
+  const { yearFilter, setYearFilter } = useFilter()
   const history = useHistory()
   
   return(
@@ -16,7 +16,6 @@ const YearPicker = () => {
         selected={ yearFilter }
         onChange={ (date) => {
           setYearFilter(date)
-          setKeyword('')
           history.replace('/')
         } }
         showYearPicker

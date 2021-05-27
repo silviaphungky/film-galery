@@ -5,16 +5,13 @@ const FilterContext = createContext()
 export const FilterProvider = ({ children }) => {
 
   const [yearFilter, setYearFilter] = useState('')
-  const [keyword, setKeyword] = useState('')
   const [isDetail, setIsDetail] = useState(false)
 
   return (
     <FilterContext.Provider value={{ 
       yearFilter    : yearFilter,
-      keyword       : keyword,
       isDetail      : isDetail,
       setYearFilter : setYearFilter,
-      setKeyword    : setKeyword,
       setIsDetail   : setIsDetail
     }}
     >
