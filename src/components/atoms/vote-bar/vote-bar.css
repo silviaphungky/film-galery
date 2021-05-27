@@ -1,0 +1,9 @@
+.vote-bar--color {
+  height: 0.5rem;
+  background: yellow;
+}
+
+.vote-bar--uncolor {
+  height: 0.5rem;
+  background: grey;
+}

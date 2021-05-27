@@ -1,0 +1,16 @@
+.search__input{
+  padding: 2px 3px;
+  height: 29px;
+  border-radius: 0;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .search__input{
+    padding: 1px 2px;
+    height: 22px;
+    border-radius: 0;
+    font-size: 12px;
+  }
+}
+
