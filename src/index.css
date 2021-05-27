@@ -5,7 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(27, 30, 35);
 }
+
+@media screen and (max-width: 767px) {
+  body >div {
+    font-size: 0.75rem;
+  }
+
+  body >h4 {
+    font-size: 1rem;
+  }
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
