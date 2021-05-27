@@ -18,7 +18,7 @@ const OptionBadge = ({
 }) => (
   <Badge 
     className='px-3 py-2 badge'
-    style={{ opacity: option === activeSection ? 1 : 0.5 }}
+    style={{ opacity: option === activeSection ? 1 : 0.7 }}
     onClick={ handleClickBadge }
   >
     { option }
