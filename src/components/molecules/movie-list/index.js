@@ -1,7 +1,18 @@
-import { useFilter } from 'context/filter-provider'
 import React, { useState } from 'react'
 import { Col, Row } from 'reactstrap'
+import { useFilter } from 'context/filter-provider'
 import './movie-list.css'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  movieList        : PropTypes.array,
+  fetchMovieDetail : PropTypes.func
+}
+
+const defaultProps = {
+  movieList        : [],
+  fetchMovieDetail : () => {}
+}
 
 const MovieList = ({ movieList, fetchMovieDetail }) =>{
   const { setIsDetail } = useFilter()
@@ -27,6 +38,7 @@ const MovieList = ({ movieList, fetchMovieDetail }) =>{
               width={ selectedId === item.id ? '100%' : '70%' }
               height='65%'
               className='d-block m-auto movie__img'
+              alt={ item.title }
             />
             <div className='title font-weight-bold mt-2 text-center'>
               { item.title }
@@ -37,5 +49,8 @@ const MovieList = ({ movieList, fetchMovieDetail }) =>{
     </Row> 
   )
 }
+
+MovieList.propTypes = propTypes
+MovieList.defaultProps = defaultProps
 
 export default MovieList

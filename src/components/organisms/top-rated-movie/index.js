@@ -3,6 +3,15 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import MovieApi from 'services/movie-api'
 import { MovieList } from 'components/molecules'
 import { Loader } from 'components/atoms'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  fetchMovieDetail: PropTypes.func
+}
+
+const defaultProps = {
+  fetchMovieDetail: () => {}
+}
 
 const TopRatedMovie = ({  fetchMovieDetail }) => {
 
@@ -37,5 +46,8 @@ const TopRatedMovie = ({  fetchMovieDetail }) => {
     </InfiniteScroll>
   )
 }
+
+TopRatedMovie.propTypes = propTypes
+TopRatedMovie.defaultProps = defaultProps
 
 export default TopRatedMovie

@@ -68,7 +68,7 @@ const PreviewMovieDetail = ({ detail }) => {
             {
               detail.homepage
                 ? (
-                  <a target="_blank" rel="noopener" href={ detail.homepage }>
+                  <a target="_blank" rel="noopener noreferrer" href={ detail.homepage }>
                     <Button color='info w-100 mt-3'>
                       <div>
                         View original

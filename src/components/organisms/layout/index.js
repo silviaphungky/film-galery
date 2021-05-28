@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { BadgeList, NavBar, YearPicker } from 'components/molecules'
+import React from 'react'
+import  { NavBar } from 'components/molecules'
 import './layout.css'
 
 const Layout = ({ 

@@ -1,8 +1,18 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import MovieApi from 'services/movie-api'
 import { MovieList } from 'components/molecules'
 import { useFilter } from 'context/filter-provider'
+import { Loader } from 'components/atoms'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  fetchMovieDetail: PropTypes.func
+}
+
+const defaultProps = {
+  fetchMovieDetail: () => {}
+}
 
 const FilteredMovie = ({  fetchMovieDetail }) => {
 
@@ -40,7 +50,7 @@ const FilteredMovie = ({  fetchMovieDetail }) => {
         setPage(page+1)
       } }
       hasMore={ page < totalPage }
-      loader={ <h3>Loading...</h3> }
+      loader={ <Loader /> }
     >
       <MovieList 
         movieList={ filteredMovieList }
@@ -49,5 +59,8 @@ const FilteredMovie = ({  fetchMovieDetail }) => {
     </InfiniteScroll>
   )
 }
+
+FilteredMovie.propTypes = propTypes
+FilteredMovie.defaultProps = defaultProps
 
 export default FilteredMovie

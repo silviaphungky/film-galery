@@ -4,17 +4,24 @@ import MovieApi from 'services/movie-api'
 import { MovieList } from 'components/molecules'
 import { useLocation } from 'react-router-dom'
 import { Loader } from 'components/atoms'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  fetchMovieDetail: PropTypes.func
+}
+
+const defaultProps = {
+  fetchMovieDetail: () => {}
+}
 
 const SearchMovie = ({ fetchMovieDetail }) => {
   const [searchResultList, setSearchResultList] = useState([])
   const [page, setPage] = useState(1)
   const [totalPage, setTotalPage] = useState(2)
-  const [keyword, setKeyword] = useState('')
   const location = useLocation()
 
   useEffect(() => {
     const searchKeyword = location.search.split('=').pop()
-    setKeyword(searchKeyword)
     if(searchKeyword) {
       setPage(1)
       setSearchResultList([])
@@ -31,7 +38,6 @@ const SearchMovie = ({ fetchMovieDetail }) => {
 
   useEffect(() => {
     const searchKeyword = location.search.split('=').pop()
-    setKeyword(searchKeyword)
     if(searchKeyword) {
       MovieApi.getSearchMovie({ query: searchKeyword, page: page })
         .then((response) => {
@@ -60,5 +66,8 @@ const SearchMovie = ({ fetchMovieDetail }) => {
     </InfiniteScroll>
   )
 }
+
+SearchMovie.propTypes = propTypes
+SearchMovie.defaultProps = defaultProps
 
 export default SearchMovie
