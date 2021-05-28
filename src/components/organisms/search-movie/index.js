@@ -5,6 +5,7 @@ import { MovieList } from 'components/molecules'
 import { useLocation } from 'react-router-dom'
 import { Empty, Loader } from 'components/atoms'
 import PropTypes from 'prop-types'
+import { Spinner } from 'reactstrap'
 
 const propTypes = {
   fetchMovieDetail: PropTypes.func
@@ -19,8 +20,10 @@ const SearchMovie = ({ fetchMovieDetail }) => {
   const [page, setPage] = useState(1)
   const [totalPage, setTotalPage] = useState(2)
   const location = useLocation()
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    setIsLoading(true)
     const searchKeyword = location.search.split('=').pop()
     if(searchKeyword) {
       setPage(1)
@@ -30,6 +33,7 @@ const SearchMovie = ({ fetchMovieDetail }) => {
           const data = response.data.results
           setSearchResultList(data)
           setTotalPage(response.data.total_pages)
+          setIsLoading(false)
         })
         .catch((error) => console.log(error))
     }
@@ -51,22 +55,26 @@ const SearchMovie = ({ fetchMovieDetail }) => {
   }, [page])
 
   return(
-    searchResultList.length === 0 
-      ? <Empty />
+    isLoading
+      ? <Spinner color='info'/>
       : (
-        <InfiniteScroll
-          dataLength={ searchResultList.length } //This is important field to render the next data
-          next={ () => {
-            setPage(page+1)
-          } }
-          hasMore={ page < totalPage }
-          loader={ <Loader /> }
-        >
-          <MovieList 
-            movieList={ searchResultList }
-            fetchMovieDetail={ fetchMovieDetail }
-          />
-        </InfiniteScroll>
+        searchResultList.length === 0 
+          ? <Empty />
+          : (
+            <InfiniteScroll
+              dataLength={ searchResultList.length } //This is important field to render the next data
+              next={ () => {
+                setPage(page+1)
+              } }
+              hasMore={ page < totalPage }
+              loader={ <Loader /> }
+            >
+              <MovieList 
+                movieList={ searchResultList }
+                fetchMovieDetail={ fetchMovieDetail }
+              />
+            </InfiniteScroll>
+          )
       )
   )
 }

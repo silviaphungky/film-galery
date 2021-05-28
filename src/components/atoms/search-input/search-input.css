@@ -1,8 +1,9 @@
 .search__input{
   padding: 2px 3px;
-  height: 29px;
+  height: 26px;
   border-radius: 0;
   font-size: 16px;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 767px) {
