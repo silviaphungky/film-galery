@@ -13,7 +13,7 @@ const PreviewMovieDetail = ({ detail }) => {
         <Button 
           color='danger'
           onClick={ () => setIsDetail(false) }
-          className='float-right close'
+          className='close'
         >
           x
         </Button>

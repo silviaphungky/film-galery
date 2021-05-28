@@ -1,6 +1,17 @@
 import React from 'react'
 import  { NavBar } from 'components/molecules'
 import './layout.css'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  activeSection    : PropTypes.string,
+  setActiveSection : PropTypes.func
+}
+
+const defaultProps = {
+  activeSection    : 'Now Playing',
+  setActiveSection : () => []
+}
 
 const Layout = ({ 
   children,
@@ -17,5 +28,8 @@ const Layout = ({
     </div>
   </>
 )
+
+Layout.propTypes = propTypes
+Layout.defaultProps = defaultProps
 
 export default Layout

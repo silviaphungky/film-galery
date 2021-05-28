@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import MovieApi from 'services/movie-api'
 import { MovieList } from 'components/molecules'
 import { useLocation } from 'react-router-dom'
-import { Loader } from 'components/atoms'
+import { Empty, Loader } from 'components/atoms'
 import PropTypes from 'prop-types'
 
 const propTypes = {
@@ -51,19 +51,23 @@ const SearchMovie = ({ fetchMovieDetail }) => {
   }, [page])
 
   return(
-    <InfiniteScroll
-      dataLength={ searchResultList.length } //This is important field to render the next data
-      next={ () => {
-        setPage(page+1)
-      } }
-      hasMore={ page < totalPage }
-      loader={ <Loader /> }
-    >
-      <MovieList 
-        movieList={ searchResultList }
-        fetchMovieDetail={ fetchMovieDetail }
-      />
-    </InfiniteScroll>
+    searchResultList.length === 0 
+      ? <Empty />
+      : (
+        <InfiniteScroll
+          dataLength={ searchResultList.length } //This is important field to render the next data
+          next={ () => {
+            setPage(page+1)
+          } }
+          hasMore={ page < totalPage }
+          loader={ <Loader /> }
+        >
+          <MovieList 
+            movieList={ searchResultList }
+            fetchMovieDetail={ fetchMovieDetail }
+          />
+        </InfiniteScroll>
+      )
   )
 }
 

@@ -4,11 +4,15 @@ import './option-badge.css'
 import PropTypes from 'prop-types'
 
 const propTypes = {
-  option: PropTypes.string
+  option           : PropTypes.string,
+  activeSection    : PropTypes.string,
+  handleClickBadge : PropTypes.func
 }
 
 const defaultProps = {
-  option: 'trending'
+  option           : 'Now Playing',
+  activeSection    : 'NowPlaying',
+  handleClickBadge : () => {}
 }
 
 const OptionBadge = ({ 

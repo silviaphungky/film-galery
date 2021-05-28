@@ -1,5 +1,14 @@
 import React from 'react'
 import './vote-bar.css'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  voteAvg: PropTypes.number
+}
+
+const defaultProps = {
+  voteAvg: 0
+}
 
 const VoteBar = ({ voteAvg }) => (
   <div className='d-flex mt-2 mb-3'>
@@ -13,5 +22,8 @@ const VoteBar = ({ voteAvg }) => (
     />
   </div>
 )
+
+VoteBar.propTypes = propTypes
+VoteBar.defaultProps = defaultProps
 
 export default VoteBar
