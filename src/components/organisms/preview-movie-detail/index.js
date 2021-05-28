@@ -26,6 +26,7 @@ const PreviewMovieDetail = ({ detail }) => {
             <img 
               src={ `https://image.tmdb.org/t/p/w500/${detail.backdrop_path}` }
               width='100%'
+              alt={`thumbnail ${detail.title}`}
             />
           </Col>
           <Col    

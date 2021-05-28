@@ -31,6 +31,7 @@ const NavBar = ({
         <img 
           src='/github.png' 
           width='30%' 
+          alt='github'
         />
         <div className='ml-3'>
           Github
