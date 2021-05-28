@@ -33,9 +33,9 @@ const PreviewMovieDetail = ({ detail }) => {
             lg='4'         
             sm='12'
             xs='12'>
-            <h4>
+            <h5>
               { detail.original_title }
-            </h4>
+            </h5>
             <div>
               { detail.overview }
             </div>
@@ -56,6 +56,22 @@ const PreviewMovieDetail = ({ detail }) => {
                 </>
               ) : null 
               }
+            </div>
+            <div>
+              { 
+              detail?.spoken_languages?.length > 0? (
+                <>
+                <span className='mr-3 font-weight-bold'>Spoken Languages:</span>
+                {
+                  detail.spoken_languages.map((lang) => <span className='mr-1'>{ lang.english_name }</span>)
+                }
+                </>
+              ) : null 
+              }
+            </div>
+            <div>
+              <span className='mr-3 font-weight-bold'>Popularity:</span>
+              <span className='mr-1'>{ detail.popularity }</span>
             </div>
             <div className='d-flex align-items-center font-weight-bold'>
               <div>
